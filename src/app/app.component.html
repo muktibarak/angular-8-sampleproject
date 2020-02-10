@@ -1,0 +1,8 @@
+<div class="container">
+    <app-header></app-header>
+    <!-- this if condition is set to home page to render banner and featured courses on home page -->
+    <app-banner *ngIf="router.url=='/'"></app-banner>
+    <app-course-featured *ngIf="router.url=='/'"></app-course-featured>
+    <app-footer></app-footer>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,53 @@
+<section class="signup-wrap mtb-40">
+    <div class="container">
+        <div class="row justify-content-center" *ngIf="!error">
+            <div class="col-md-6">
+                <div class="login-box">
+                    <h3>User Registration</h3>
+                    <div class="alert alert-success" *ngIf="dataSaved">
+                        {{message}}
+                    </div>
+                    <form (ngSubmit)="onSubmit(regForm)" formGroup="regForm">
+                    <!-- now write for the registration requirements -->
+                    <div class="form-group form-row">
+                        <label class="col-md-3">First Name: <span class="required">*</span></label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="FirstName" required/>
+                    <!-- validation codes goes here -->
+                        <span *ngIf="!regForm.get('FirstName').valid && regForm.get('FirstName').touched">Please enter first name!</span>
+                    </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <label class="col-md-3">Last Name: <span class="required">*</span></label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="LastName" required/>
+                        <!-- validation codes for lastname goes here -->
+                        <span *ngIf="!regForm.get('LastName').valid && regForm.get('LastName').touched">Please enter last name!</span>
+                    </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <label class="col-md-3">Email ID: <span class="required">*</span></label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" formControlName="EmailId" required/>
+                    <!-- email input validation goes here -->
+                    <span *ngIf="!regForm.get('EmailID').valid && regForm.get('EmailID').touched">Please enter email id!</span>
+                    </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <label class="col-md-3">Password: <span class="required">*</span></label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" formControlName="Password" required/>
+                        <!-- validation code goes here -->
+                        <span *ngIf="!regForm.get('Password').valid && regForm.get('Password').touched">Please enter first name!</span>
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" [disabled]="!regForm.valid" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
